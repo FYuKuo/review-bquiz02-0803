@@ -162,4 +162,7 @@ function alert($str)
     echo "</script>";
 }
 
+
+$View = new DB('view');
+$User = new DB('user');
 ?>

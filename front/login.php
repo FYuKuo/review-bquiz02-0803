@@ -20,7 +20,7 @@
         <tr>
             <td>
                 <input type="button" value="登入" onclick="login()">
-                <input type="button" value="清除">
+                <input type="button" value="清除" onclick="reset()">
             </td>
             <td style="float: right;">
                 <a href="?do=forgot">忘記密碼</a>
@@ -31,7 +31,10 @@
 </fieldset>
 
 <script>
-    
+    function reset(){
+		$('#acc').val("");
+		$('#pw').val("");
+	}
     
     function login(){
         let acc = $('#acc').val();

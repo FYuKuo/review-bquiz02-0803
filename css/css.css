@@ -299,3 +299,11 @@ cursor:default;
 .m-auto {
 	margin: auto;
 }
+
+input.w-90 {
+	width: 90%;
+}
+
+fieldset {
+	padding: 20px;
+}

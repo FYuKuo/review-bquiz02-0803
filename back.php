@@ -17,6 +17,11 @@ $total = 0;
 foreach ($allView as $key => $value) {
 	$total = $total+$value['total'];
 }
+
+if($_SESSION['user'] != 'admin'){
+    to('./index.php');
+    exit();
+}
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -48,11 +53,11 @@ foreach ($allView as $key => $value) {
         </div>
         <div id="mm">
             <div class="hal" id="lef">
+                <a class="blo" href="?do=admin">帳號管理</a>
                 <a class="blo" href="?do=po">分類網誌</a>
-                <a class="blo" href="?do=news">最新文章</a>
-                <a class="blo" href="?do=pop">人氣文章</a>
-                <a class="blo" href="?do=know">講座訊息</a>
-                <a class="blo" href="?do=que">問卷調查</a>
+                <a class="blo" href="?do=news">最新文章管理</a>
+                <a class="blo" href="?do=know">講座管理</a>
+                <a class="blo" href="?do=que">問卷管理</a>
             </div>
             <div class="hal" id="main">
                 <div>
@@ -62,18 +67,11 @@ foreach ($allView as $key => $value) {
                     <span style="width:18%; display:inline-block;">
                         <?php
                         if(isset($_SESSION['user'])){
-                            if($_SESSION['user'] == 'admin'){
                         ?>
                         歡迎，<?=$_SESSION['user']?>
                         <input type="button" value="管理" onclick="location.href='./back.php'">
                         <input type="button" value="登出" onclick="location.href='./api/logout.php'">
                         <?php
-                            }else{
-                                ?>
-                        歡迎，<?=$_SESSION['user']?>
-                        <input type="button" value="登出" onclick="location.href='./api/logout.php'">
-                        <?php      
-                            }
                         }else{
                         ?>
                         <a href="?do=login">會員登入</a>
@@ -85,10 +83,10 @@ foreach ($allView as $key => $value) {
                 <div class="content">
                     <?php
 					$do = $_GET['do']??'main';
-					if(file_exists('./front/'.$do.'.php')){
-						include('./front/'.$do.'.php');
+					if(file_exists('./back/'.$do.'.php')){
+						include('./back/'.$do.'.php');
 					}else{
-						to('./index.php');
+						to('./back.php');
 					}
 					?>
                 </div>

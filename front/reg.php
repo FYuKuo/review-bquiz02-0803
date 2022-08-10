@@ -57,6 +57,34 @@
 	}
 
     function reg(){
-        
+        let acc = $('#acc').val();
+		let pw = $('#pw').val();
+		let pwch = $('#pwch').val();
+		let email = $('#email').val();
+
+        // console.log('123');
+
+        if(acc == '' || pw == '' || pwch == '' || email ==''){
+
+            alert('不可為空');
+
+        }else if (pw != pwch){
+
+            alert('密碼錯誤');
+
+        }else{
+
+            $.post('./api/reg.php',{acc,pw,email},(res)=>{
+                
+                if(parseInt(res) == 1){
+                    alert('註冊完成，歡迎加入');
+                    location.href = '?do=login';
+                }else{
+                    alert('帳號重複');
+                }
+
+            })
+        }
+
     }
 </script>

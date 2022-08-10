@@ -1,16 +1,6 @@
 ﻿<?php
 include('./api/base.php');
-if(empty($_SESSION['view'])){
-	$dateView = $View->math('COUNT','id',['date'=>date('Y-m-d')]);
-	if($dateView > 0){
-		$view = $View->find(['date'=>date('Y-m-d')]);
-		$view['total']++;
-		$View->save($view);
-	}else{
-		$View->save(['date'=>date('Y-m-d'),'total'=>1]);
-	}
-	$_SESSION['view'] = 1;
-}
+
 
 $allView = $View->all();
 $total = 0;

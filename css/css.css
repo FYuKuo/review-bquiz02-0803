@@ -307,3 +307,7 @@ input.w-90 {
 fieldset {
 	padding: 20px;
 }
+
+.nowPage{
+	font-size: 1.5rem;
+}

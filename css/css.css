@@ -311,3 +311,22 @@ fieldset {
 .nowPage{
 	font-size: 1.5rem;
 }
+
+div.tr {
+	display: flex;
+}
+
+.content {
+	min-height: 460px;
+	overflow: auto;
+}
+
+.showTitle{
+	cursor: pointer;
+	color: blue;
+}
+
+.showTitle:hover{
+	text-decoration: underline;
+	text-underline-offset: 5px;
+}

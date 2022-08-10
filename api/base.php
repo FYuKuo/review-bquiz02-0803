@@ -166,6 +166,7 @@ function alert($str)
 $View = new DB('view');
 $User = new DB('user');
 $News = new DB('news');
+$Que = new DB('que');
 
 if(empty($_SESSION['view'])){
 	$dateView = $View->math('COUNT','id',['date'=>date('Y-m-d')]);
